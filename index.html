@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick QR Code Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="QR.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-qrcode"></i> Quick QR Code Generator</h1>
+            <p class="subtitle">Create QR codes easily and quickly for any text or link. Free and easy to use!</p>
+        </header>
+
+        <main>
+            <div class="app-card">
+                <div class="app-section">
+                    <div class="input-section">
+                        <h2><i class="fas fa-edit"></i> Enter Data</h2>
+                        <div class="form-group">
+                            <label for="contentType"><i class="fas fa-filter"></i> Content Type</label>
+                            <select id="contentType">
+                                <option value="url">Website URL</option>
+                                <option value="text">Plain Text</option>
+                                <option value="email">Email Address</option>
+                                <option value="phone">Phone Number</option>
+                                <option value="sms">SMS Message</option>
+                                <option value="wifi">Wi-Fi Network</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputText"><i class="fas fa-pen"></i> Content</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-keyboard"></i>
+                                <textarea id="inputText" placeholder="Enter your link or text here...">https://www.example.com</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="qrSize"><i class="fas fa-expand-alt"></i> QR Code Size</label>
+                            <select id="qrSize">
+                                <option value="128">Small (128x128)</option>
+                                <option value="256" selected>Medium (256x256)</option>
+                                <option value="400">Large (400x400)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-palette"></i> QR Code Color</label>
+                            <div class="color-options">
+                                <div class="color-option selected" data-color="#000000">
+                                    <div class="color-preview" style="background-color: #000000"></div>
+                                    <span>Black</span>
+                                </div>
+                                <div class="color-option" data-color="#4361ee">
+                                    <div class="color-preview" style="background-color: #4361ee"></div>
+                                    <span>Blue</span>
+                                </div>
+                                <div class="color-option" data-color="#3a0ca3">
+                                    <div class="color-preview" style="background-color: #3a0ca3"></div>
+                                    <span>Purple</span>
+                                </div>
+                                <div class="color-option" data-color="#f72585">
+                                    <div class="color-preview" style="background-color: #f72585"></div>
+                                    <span>Pink</span>
+                                </div>
+                                <div class="color-option" data-color="#4ade80">
+                                    <div class="color-preview" style="background-color: #4ade80"></div>
+                                    <span>Green</span>
+                                </div>
+                                <div class="color-option" data-color="#ff6d00">
+                                    <div class="color-preview" style="background-color: #ff6d00"></div>
+                                    <span>Orange</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="generateBtn" class="btn">
+                            <i class="fas fa-bolt"></i> Generate QR Code
+                        </button>
+                    </div>
+
+                    <div class="output-section">
+                        <h2><i class="fas fa-qrcode"></i> Generated QR Code</h2>
+                        <div class="qr-container">
+                            <div id="qrcode" class="hidden"></div>
+                            <div id="qrPlaceholder" class="qr-placeholder">
+                                <i class="fas fa-qrcode"></i>
+                                <p>QR Code will appear here after generation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="actions">
+                            <button id="downloadBtn" class="btn btn-success hidden">
+                                <i class="fas fa-download"></i> Download Image
+                            </button>
+                            <button id="resetBtn" class="btn btn-danger">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                            <button id="shareBtn" class="btn btn-secondary hidden">
+                                <i class="fas fa-share"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructions">
+                    <h3><i class="fas fa-info-circle"></i> How to Use</h3>
+                    <ol>
+                        <li>Select the type of content you want to create a QR Code for (link, text, etc.)</li>
+                        <li>Enter the text or link in the input field</li>
+                        <li>Choose the appropriate size for the QR Code</li>
+                        <li>Select a color for your QR Code (optional)</li>
+                        <li>Click the "Generate QR Code" button</li>
+                        <li>After generating the QR Code, you can download it as a PNG image</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Fast & Efficient</h4>
+                    <p>Generate QR Code in seconds</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Secure & Private</h4>
+                    <p>Your data is not stored</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-laptop"></i>
+                    <h4>Works on All Devices</h4>
+                    <p>Responsive on all screens</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-download"></i>
+                    <h4>Free Download</h4>
+                    <p>Download your QR Code</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="QR.js"></script>
+</body>
+</html>
